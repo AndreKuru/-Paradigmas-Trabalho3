@@ -9,6 +9,11 @@ solucao(4, Answer) :-
     Row3 = [X31, X32, X33, X34],
     Row4 = [X41, X42, X43, X44],
     Rows = [Row1, Row2, Row3, Row4],
+    
+    /* certifica-se de que Rows é uma lista de listas
+    e de que Elements é a lista resultante da concatenação
+    dessas listas, definindo assim o dominio {1,2,3,4} */
+    
     append(Rows, Elements), Elements ins 1..4,
     maplist(all_distinct, Rows),
   
@@ -27,6 +32,10 @@ solucao(4, Answer) :-
     X41 #> X42,              X43 #> X44,
 
   	Answer = Rows.
+
+/* verifica as regiões recursivamente,
+certificando-se de que não há elementos
+repetidos em cada uma delas */
 
 blocks([], []).
 blocks([A,B|Rows1], [C,D|Rows2]) :-
