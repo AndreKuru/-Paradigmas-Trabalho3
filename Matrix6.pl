@@ -10,6 +10,11 @@ solucao(6, Answer) :-
     Row5 = [X51, X52, X53, X54, X55, X56],
     Row6 = [X61, X62, X63, X64, X65, X66],
     Rows = [Row1, Row2, Row3, Row4, Row5, Row6],
+    
+    /* certifica-se de que Rows é uma lista de listas
+    e de que Elements é a lista resultante da concatenação
+    dessas listas, definindo assim o dominio {1,2,3,4,5,6} */
+    
     append(Rows, Elements), Elements ins 1..6,
     maplist(all_distinct, Rows),
   
@@ -32,6 +37,10 @@ solucao(6, Answer) :-
     X61 #> X62,              X63 #< X64,              X65 #> X66,
 
   	Answer = Rows.
+
+/* verifica as regiões recursivamente,
+certificando-se de que não há elementos
+repetidos em cada uma delas */
 
 blocks([], [], []).
 blocks([A,B|Rows1], [C,D|Rows2], [E,F|Rows3]) :-
