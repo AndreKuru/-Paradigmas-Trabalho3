@@ -1,6 +1,6 @@
 :- use_module(library(clpfd)).
 
-:- use_rendering(table).
+% :- use_rendering(table).
 
 solucao(4, Answer) :-
     
