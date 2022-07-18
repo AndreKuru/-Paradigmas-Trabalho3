@@ -13,6 +13,11 @@ solucao(9, Answer) :-
     Row8 = [X81, X82, X83, X84, X85, X86, X87, X88, X89],
     Row9 = [X91, X92, X93, X94, X95, X96, X97, X98, X99],
     Rows = [Row1, Row2, Row3, Row4, Row5, Row6, Row7, Row8, Row9],
+    
+    /* certifica-se de que Rows é uma lista de listas
+    e de que Elements é a lista resultante da concatenação
+    dessas listas, definindo assim o dominio {1,2,3,4,5,6,7,8,9} */
+    
     append(Rows, Elements), Elements ins 1..9,
     maplist(all_distinct, Rows),
     
@@ -41,6 +46,10 @@ solucao(9, Answer) :-
     X91 #< X92, X92 #> X93,              X94 #< X95, X95 #< X96,              X97 #< X98, X98 #> X99,
 
   	Answer = Rows.
+    
+/* verifica as regiões recursivamente,
+certificando-se de que não há elementos
+repetidos em cada uma delas */
 
 blocks([], [], []).
 blocks([A,B,C|Rows1], [D,E,F|Rows2], [G,H,I|Rows3]) :-
