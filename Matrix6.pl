@@ -1,6 +1,6 @@
 :- use_module(library(clpfd)).
 
-:- use_rendering(table).
+% :- use_rendering(table).
 
 solucao(6, Answer) :-
     Row1 = [X11, X12, X13, X14, X15, X16],
